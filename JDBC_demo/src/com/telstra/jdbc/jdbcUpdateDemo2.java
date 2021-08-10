@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class jdbcInsertDemo {
+public class jdbcUpdateDemo2 {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
@@ -15,18 +15,18 @@ public class jdbcInsertDemo {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		String url = "jdbc:mysql://localhost:3306/telstra";
+		String url = "jdbc:mysql://localhost:3306/company";
 		String username = "root";
 		String password = "Sayali@123";
-		String insertCommand = "Insert INTO employee VALUES(8902,'Abhijeet', 'Tester')";
+		String updateCommand = "UPDATE products SET cost=55000 WHERE id=14";
 		int i = 0;
 		Connection cn = null;
 		Statement st = null;
 		try {
 			cn=DriverManager.getConnection(url,username,password);
 			st = cn.createStatement();
-			i = st.executeUpdate(insertCommand);
-			System.out.println(i+ " Records added");
+			i = st.executeUpdate(updateCommand);
+			System.out.println(i+ " Records updated");
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
